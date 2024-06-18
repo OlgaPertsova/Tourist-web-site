@@ -1,0 +1,53 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%load humanize%}
+{%block content%}
+<main data-barba="container" data-barba-namespace="list-tours">
+
+{%include 'directions/directions.html'%}
+
+<section class="section__container trending__container" id="trending">
+    <div class="trending__grid">
+        {% for tour in tours %}
+        <a href="{%url 'direction' tour.id%}">
+        <div class="trending__card">
+            <img src="{{tour.tour_images.url}}" alt="">
+            <h2>{{tour.name}}</h2>
+            <p>{{tour.preview}}</p>
+            <div class="trending__details">
+                <div class="price">
+                    <p>За</p>
+                    <h3>{{tour.price|intcomma}} руб.</h3>
+                </div>
+                <span class="rating">{{tour.rating}}<i class="ri-star-line"></i></span>
+            </div>
+            <h5><span><i class="ri-time-line"></i> {{tour.duration}} дней</span></h5>
+            <h5><span><i class="ri-message-3-line"> {{tour.review_set.all.count}} комментариев</i></span></h5>
+        </div></a>
+        {%endfor%}
+    </div>
+</section>
+
+{%if tours%}
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        {%if tours.has_previous%}
+        <li class="page-item">
+            <a class="page-link" href="?page={{tours.previous_page_number}}">Предыдущая</a>
+        </li>
+        {%endif%}
+        {%if tours.has_other_pages%}
+        {%for page in tours.paginator.page_range%}
+        <li class="page-item {%if page == tours.number%} active {%endif%}"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
+        {%endfor%}{%endif%}
+        {%if tours.has_next%}
+        <li class="page-item">
+            <a class="page-link" href="?page={{tours.next_page_number}}">Следующая</a>
+        </li>
+        {%endif%}
+
+    </ul>
+</nav>
+{%endif%}
+</main>
+{%endblock%}

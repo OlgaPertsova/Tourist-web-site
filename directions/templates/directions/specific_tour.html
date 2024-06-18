@@ -1,0 +1,143 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%load humanize%}
+{% block content %}
+<main data-barba="container" data-barba-namespace="specific-tour">
+
+{%include 'directions/directions.html'%}
+
+<section class="tour">
+    <div class="section__container tour__container">
+        <div class="tour__content">
+            <h2 class="tour__header">{{tour.name}}</h2>
+            <div class="tour__flex">
+                <div class="tour__card">
+                    <div class="rating">
+                        <h4>{{rev_count}}</h4>
+                        <p>отзывов</p>
+                    </div>
+                </div>
+                <div class="tour__card">
+                    <h4>{{tour.price|intcomma}}</h4>
+                    <p>руб.</p>
+                </div>
+                <div class="tour__card">
+                    <h4>{{tour.duration}}</h4>
+                    <p>дней</p>
+                </div>
+            </div>
+            <button class="tour__btn">
+                <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@md" href="#">Забронировать</a>
+            </button>
+        </div>
+        <div class="tour__image">
+            <img src="{{ tour.tour_images.url }}" alt="">
+        </div>
+
+    </div>
+    <div class="tour__program">
+        <h2 class="">П Р О Г Р А М М А</h2>
+        <p>{{tour.program|safe}}</p>
+    </div>
+
+</section>
+
+<section class="tour-carosel">
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+    {%for img in tour.photo_set.all%}
+    <div class="carousel-item active data-bs-interval='500'">
+      <img src="{{img.add_photo.url}}" class="d-block w-100" alt="...">
+    </div>
+    {%endfor%}
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
+<div class="comment">
+    <h2 class="">О Т З Ы В Ы</h2>
+
+
+{%if request.user.profile.id in tour.reviewers%}<br>
+<br>
+<br>
+<h3>Вы уже оставили свой отзыв об этом туре!</h3>
+<br>
+<br>
+<br>
+{%elif request.user.is_authenticated%}
+
+    <form class="form" action="{%url 'direction' tour.id%}" method="POST">
+        {%csrf_token%}
+
+        <h3>Сколько звезд хотите поставить?</h3>
+
+        <div class="container-rating">
+            <div class="star-widget">
+            {%for rate in form.value reversed%}
+                {{ rate.choice_label }}
+                {{ rate.tag }}
+            <label for="{{rate.id_for_label}}" class="ri-star-fill">
+
+
+            </label>
+
+            {%endfor%}
+            </div>
+
+        </div>
+
+            {{form.body}}
+
+        <button class="btn-comment">Добавить</button>
+
+    </form>
+{%else%}
+<br>
+<br>
+<br>
+<a href="#">Чтобы оставить отзыв Вам нужно авторизироваться или зарегистрироваться!</a>
+<br>
+<br>
+<br>
+{%endif%}
+</div>
+<div class="commentList">
+    <div class=" swiper commentList-slider js-commentList-slider">
+      <div class="swiper-wrapper">
+          {%for review in tour.review_set.all%}
+            {%if review.body%}
+        <div class="swiper-slide commentList-item">
+            <div class="info">
+                <img src="{{review.owner.profile_image.url}}" alt="user" />
+                <div class="text-box">
+                   <h3>{{review.owner.name}}</h3>
+                   <p>Из города {{review.owner.my_city}}</p>
+                   <span class="rating">Ставлю {{review.value}}<i class="ri-star-line"></i></span>
+                </div>
+            </div>
+            <p>{{review.body|linebreaksbr}}</p>
+            <h4>Добавлено: {{review.created|naturalday}}</h4>
+        </div>
+            {%endif%}
+          {%endfor%}
+      </div>
+    </div>
+    <div class="btn1-commentList swiper-button-next"></div>
+    <div class="btn2-commentList swiper-button-prev"></div>
+</div>
+
+{% include 'directions/book_tour.html' %}
+</main>
+{% endblock %}

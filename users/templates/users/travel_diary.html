@@ -1,0 +1,36 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%load humanize%}
+{%block content%}
+<main data-barba="container" data-barba-namespace="home">
+
+ <div class="cities">
+     <div class="title-cities">
+        <h2><a class="btn text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@m" href="#">Хочу добавить новое путешествие</a></h2>
+    </div>
+</div>
+<main class="index">
+    <div class="cantainer">
+        {%for place in places.all%}
+        <a href="{%url 'place' place.id%}" class="nav-link"><div class="mycard">
+            <div class="cimg">
+                <img width="280" height="260" src="{{ place.travel_image.url }}" alt="">
+            </div>
+            <div class="cdetail">
+                <h3>{{place.place}}</h3>
+                <div class="price">
+                    <h5><u>Потрачено</u></h5>
+                    <p>{{place.sum|intcomma}} руб.</p>
+                    <p>За <span><i class="ri-time-line"></i> {{place.diff_date|cut:"days, 0:00:00"}} дней</span></p>
+
+                </div>
+
+            </div>
+        </div></a>
+        {% endfor %}
+    </div>
+</main>
+
+{% include 'users/create_place.html' %}
+</main>
+{%endblock%}

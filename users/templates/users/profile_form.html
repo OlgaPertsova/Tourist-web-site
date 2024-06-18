@@ -1,0 +1,25 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content book_form">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Изменение профиля</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <form action="{%url 'profile_form'%}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+          <div class="mb-3">
+              {%for field in form%}
+            <div class="modal-body">
+                <div class="input__group">
+                    {{field}}
+                    <label class="col-form-label">{{field.label}}: </label>
+                </div>
+            </div>
+              {%endfor%}
+            <input class="book_btn" type="submit" value="Готово" />
+          </div>
+        </form>
+    </div>
+  </div>
+</div>

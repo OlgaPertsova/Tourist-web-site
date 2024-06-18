@@ -1,0 +1,19 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%block content%}
+<main data-barba="container" data-barba-namespace="home">
+
+<div class="cities">
+  <div class="title-cities">
+    <h1>Выбери город</h1>
+    <input id="list-cities" class="form-control me-2" type="search" placeholder="Ищу..." aria-label="Search">
+  </div>
+
+  <ul class="category-list clearfix">
+    {%  for city in cities %}
+    <li class="category-item"><a href="{% url 'city' city.id %}">{{city.title}}</a></li>
+    {%endfor%}
+  </ul>
+</div>
+</main>
+{%endblock%}

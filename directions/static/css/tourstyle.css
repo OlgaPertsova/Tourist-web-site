@@ -1,0 +1,40 @@
+.section__container{
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+}
+.section__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.section__title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: black;
+}
+.section__nav{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.section__nav span{
+    padding: 0 7px;
+    font-size: 1.75rem;
+    color: black;
+    border: 1px solid #000;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.trending__grid{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.trending__card{
+    padding: 1rem;
+    border-radius: 10px;
+}

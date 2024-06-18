@@ -1,0 +1,105 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%load humanize%}
+{%block content%}
+<main data-barba="container" data-barba-namespace="index">
+
+<section class="base-carosel">
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/levitan.jpg' %}" class="d-block w-100" alt="">
+      <div class="carousel-caption d-none d-md-block">
+        <a href="{% url 'cities'%}"><p>Исследовать города России</p></a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/ярмарка.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+          <a href="{% url 'events' %}"><p>Узнать последние новости</p></a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/рыбаки.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <a href="{%url 'directions'%}"><p>Выбрать направление</p></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<div class="index">
+    <div class="header-title">
+        <h2>Мероприятия месяца</h2>
+    </div>
+    <div class="cantainer">
+    {%  for event in events %}
+    <a href="{{event.link}}" target="_blank" class="nav-link">
+        <div class="mycard">
+        <div class="cimg">
+            <img width="280" height="260" src="{{ event.owner.city_image.url }}" alt="">
+            <div class="tour-rating">{{event.date_of_the}}<i class="ri-calendar-event-line"></i></div>
+        </div>
+
+        <div class="cdetail">
+            <h3>Пройдет {{event.title}}</h3>
+            <p>в городе {{event.owner}}</p>
+        </div>
+    </div></a>
+    {% endfor %}
+    </div>
+</div>
+
+<div class="index">
+    <div class="header-title">
+        <h2>Эти места пользуются особой популярностью</h2>
+    </div>
+    <div class="cantainer">
+        {%  for city in cities %}
+        <a href="{% url 'city' city.id %}" class="nav-link"><div class="mycard">
+            <div class="cimg">
+                <img width="280" height="260" src="{{ city.city_image.url }}" alt="">
+            </div>
+            <div class="cdetail">
+                <h3>{{city.title}}</h3>
+                <p>{{city.preview}}</p>
+            </div>
+        </div></a>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="index">
+    <div class="header-title">
+        <h2>Туры с высоким рейтингом</h2>
+    </div>
+    <div class="cantainer">
+    {%  for tour in tours %}
+    <a href="{% url 'direction' tour.id %}" class="nav-link">
+        <div class="mycard">
+        <div class="cimg">
+            <img width="280" height="260" src="{{ tour.tour_images.url }}" alt="">
+            <div class="tour-rating">{{tour.rating}}<i class="ri-star-line"></i></div>
+        </div>
+
+        <div class="cdetail">
+            <h3>{{tour.name}}</h3>
+            <p>{{tour.preview|slice:"70"}}...</p>
+        </div>
+    </div></a>
+    {% endfor %}
+    </div>
+</div>
+
+
+</main>
+
+{%endblock%}

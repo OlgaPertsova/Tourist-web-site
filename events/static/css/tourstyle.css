@@ -1,0 +1,540 @@
+.hd1-photo{
+    background-image: url('/static/images/photo_2024.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 64vh !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.9);
+}
+.hd1 h1{
+    color: #fff !important;
+    font-style: italic;
+    font-size: 3.3rem;
+    padding-top: 6rem;
+    padding-left: 10rem;
+}
+.hd1 ul{
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.hd1 .nav-link{
+    color: #fff !important;
+    font-size: 1.6rem !important; 
+}
+.section__container{
+    margin: auto;
+    padding: 0rem 1rem 5rem 1rem;
+}
+.section__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.section__title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: black;
+}
+.section__nav{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.section__nav span{
+    padding: 0 7px;
+    font-size: 1.75rem;
+    color: black;
+    border: 1px solid #000;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.section__nav span:hover{
+    color:rgb(255, 0, 0);
+    background-color: #ffffff;
+    border-color: #f00505;
+}
+
+.trending__grid{
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.trending__grid a{
+    text-decoration: none !important;
+}
+.trending__card{
+    height: 585px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+.trending__card img{
+    width: 100%;
+    height: 49%;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+.trending__card p{
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: rgb(0, 0, 0);
+}
+.trending__card h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000;
+}
+.trending__card h5{
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #000;
+}
+.trending__card h5 span{
+    font-size: 1.2rem;
+    color: #f00505;
+}
+.trending__card p span{
+    font-size: 1.2rem;
+    color: #f00505;
+}
+.trending__card:hover{
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.9);
+}
+.trending__details{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.trending__details p{
+    font-weight: 500;
+    color: #000;
+}
+.trending__details h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+}
+.trending__card .rating {
+    font-size: 2rem !important;
+    color: goldenrod !important;
+}
+/*-------------------------------------------*/
+/* стили для отдельного тура*/
+.tour__container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    padding: 0rem 1rem 5rem 2rem !important;
+}
+.tour__program {
+    color: black;
+    padding: 1rem 5rem;
+}
+.tour__program p{
+    font-size: 1.2rem;
+}
+.tour__program h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+.tour__header{
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: left;
+    min-width: 600px;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    color: #02053e;
+}
+.tour__flex{
+    margin: 2rem 1rem;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: #faf6d1;
+    border-radius: 3rem;
+    box-shadow: 0 1.2rem 4rem rgb(0, 0, 0, 1) !important;
+}
+.tour__card{
+    flex: 1 1 150px;
+    text-align: center;
+    border-right: 2px solid rgb(239, 227, 182);
+}
+.tour__card:last-child{
+    border: none;
+}
+.tour__card h4{
+    margin-bottom: 5px;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #000;
+}
+.tour__card p{
+    font-size: 1.5rem;
+}
+.tour__btn a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #faf6d1;
+    box-shadow: 0 2.2rem 4rem rgb(0, 0, 0, 1) !important;
+}
+.tour__btn{
+    margin-left: 15rem;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    border-radius: 1.5rem;
+    background-color: black;
+    cursor: pointer;
+}
+.tour__image img{
+    max-width: 650px;
+    margin: auto;
+    border-radius: 3rem;
+    box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 1) !important;
+}
+@media (width < 1000px){
+    .tour__container{
+        grid-template-columns: repeat(1, 1fr);
+        text-align: center;
+    }
+    .tour__header{
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    .trending__grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .tour__btn{
+        margin-left: 0;
+        text-align: center;
+    }
+    .hd1-photo{
+        height: 70vh !important;
+    }
+    .hd1 h1{
+        font-size: 2.5rem;
+    }
+    .hd1 .nav-link{
+        font-size: 1.3rem !important;
+    }
+    .tour-carosel .carousel{
+        margin: 10px 30px 50px 30px !important;
+    }
+    .trending__card img{
+        height: 40% !important;
+    }
+    .trending__card h2{
+        font-size: 1.3rem !important;
+    }
+}
+/*-------------------------------------------*/
+/* стили для комментариев*/
+
+.container-rating{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-rating .star-widget input{
+    display: none;
+    position: relative;
+    bottom: -35px;
+    left: -49px;
+    width: 13px;
+    float: right;
+}
+.star-widget label{
+    font-size: 40px;
+    color: darkgrey;
+    /* padding: 10px; */
+    float: right;
+    transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: gold;
+}
+input:checked ~ label{
+    color: goldenrod; 
+}
+input#id_value_4:checked ~ label{
+    color: goldenrod; 
+    text-shadow: 0 0 20px #952;
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    margin-right: 5rem;
+    margin-top: 10rem;
+    width: 100%;
+    border-radius: .75rem;
+    box-shadow: #000;
+    text-align: center;
+}
+.comment a{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 530;
+    color: #0299fe;
+    /* box-shadow: 0 0.2rem 1.9rem rgb(0, 0, 0, 0.6) !important; */
+}
+.comment a:hover{
+    color: #f60606;
+
+}
+.comment h2{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+.comment h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.comment textarea{
+    width: 55%;
+    height: 200px;
+    background-color: #faf6d1;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    resize: none;
+    box-shadow: 0 0.2rem 1.9rem rgb(0, 0, 0, 0.6) !important;
+    margin: 2rem;
+
+}
+.btn-comment{
+    display: flex;
+    grid-gap: .5rem;
+    align-items: center;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    background-color: rgb(20, 19, 19);
+    cursor: pointer;
+    color: #faf6d1;
+    margin-left: 47%;
+    font-weight: 600;
+}
+.btn-comment:hover{
+    background-color: #faf6d1;
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 0.2rem 1.9rem rgb(0, 0, 0, 0.6) !important;
+
+}
+.commentList{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn1-commentList, .btn2-commentList{
+    position: sticky !important; 
+    display: block !important;
+    color: #000 !important;
+    left: 0 !important;
+    bottom: 299px !important;
+}
+.btn1-commentList {
+    left: 100% !important;
+    /* bottom: 300px !important; */
+}
+.commentList-item {
+    background-color: #faf6d1;
+    padding: 30px;
+    margin: 1.5rem;
+    border-radius: 30px;
+    box-shadow: 0 0.2rem 1.9rem rgb(0, 0, 0, 0.6) !important;
+    display: flex !important;
+    width: 465px !important;
+    flex-direction: column;
+    align-items: baseline;
+}
+.commentList-item p{
+    margin-top: 5px;
+    font-family: cursive;
+    font-size: 20px;
+}
+.commentList-item .info{
+    display: flex;
+    /* flex: 0 0 375px !important; */
+    align-items: center;
+}
+.commentList-item .info p{
+    margin-top: 20px;
+    color: #000;
+}
+.commentList-item img{
+    max-width: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.commentList-item .text-box h3{
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: #02053e;
+    line-height: 1.2;
+}
+.commentList-item .text-box p{
+    color: #0107779a;
+    /* margin-left: auto; */
+}
+.commentList-item .text-box .rating {
+    font-size: 1.5rem !important;
+    color: goldenrod !important;
+}
+.commentList-item h4{
+    font-size: small;
+    color: grey;
+    margin-left: auto;
+    font-family: cursive;
+}
+/*-------------------------------------------*/
+/* стили для страницы с заявкой*/
+.book_tour{
+    min-height: 100vh;
+    background-image: url('/static/images/photo_2024.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.book_form{
+    background-color: #0854b24d !important;
+    width: 100%;
+    max-width: 430px !important;
+    padding: 0rem 3rem !important;
+    margin: 1rem;
+    backdrop-filter: blur(8px);
+    border: 2px solid #fff !important;
+    border-radius: 2rem !important;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: show 0.5s linear forwards;
+}
+@keyframes show{
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.book_form h1{
+    /* margin-bottom: 2rem; */
+    font-size: 1.7rem !important;
+    font-weight: 600;
+    color: #faf6d1;
+    text-align: center;
+}
+.book_form h4{
+    color: #faf6d1;
+}
+.input__row{
+    padding: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding-block: 13px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+}
+.input__group{
+    flex: 1;
+    position: relative;
+    isolation: isolate;
+}
+.input__group label{
+    position: absolute;
+    font-size: 1rem;
+    color: #faf6d1;
+    top: -1.8rem;
+    left: 0;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.input__group input:not(:placeholder-shown) ~ label,
+.input__group input:focus ~ label{
+    font-size: 0.7rem;
+    top: -1.25rem;
+}
+.input__group input{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: transparent;
+}
+.input__group textarea{
+    width: 99%;
+    height: 130px;
+    background-color: #fefefe86;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    resize: none;
+    box-shadow: 0 0.2rem 1.9rem rgb(0, 0, 0, 0.6) !important;
+    margin-top: 1rem;
+}
+.book_btn{
+    margin-left: 6rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    width: 35%;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    background-color: #fff;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.book_btn:hover{
+    background-color: #ffffffbd;
+}
+/*-------------------------------------------*/
+/* стили для карусели*/
+.tour-carosel{
+    .carousel{
+        padding: 10px;
+        margin: 10px 190px 50px 190px;
+        position: sticky !important;
+        box-shadow: 0 5.2rem 8rem rgba(0, 0, 0, 1) !important;
+    }
+    .carousel .carousel-item img{
+        height: 80vh !important;
+        background-position: center;
+    }
+}

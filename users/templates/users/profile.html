@@ -1,0 +1,58 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%block content%}
+<main data-barba="container" data-barba-namespace="home">
+
+<div class="header_wrapper">
+
+        <div class="hd-photo p-4 mb-4 text-body-emphasis">
+    <div class="hd">
+      <h1>Россия твоими глазами</h1>
+      <br>
+      <p>
+        Личный дневник путешественника поможет тебе составить уникальный маршрут и не забыть самое важное - впечатления!</p>
+    </div>
+  </div>
+
+    <div class="cols_container">
+        <div class="left_col">
+            <a class="btn text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#">
+<!--            <a class="link-body-emphasis text-decoration-none" href="{%url 'profile_form'%}">-->
+            <div class="img_container">
+                <img src="{{profile.profile_image.url}}" alt="user">
+            </div>
+              </a>
+            <h2>{{profile.name}}</h2>
+            <p>{{profile.my_city}}</p>
+            <p>{{user.email}}</p>
+            <div class="about">
+                <p>{{profile.bio}}</p>
+                {%for place in places.all%}
+                <ul>
+                    <li>
+                        <a class="place-popup text-decoration-none" href="{%url 'place' place.id%}">{{place.place}}</a>
+                    </li>
+                </ul>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="right_col">
+            <nav>
+                <ul>
+                    <li><a href="{%url 'travel_diary'%}">Мои путешествия</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="photos">
+                <div id="map-test" class="map"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% include 'users/profile_form.html' %}
+</main>
+{%endblock%}

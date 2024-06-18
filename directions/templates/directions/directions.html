@@ -1,0 +1,18 @@
+{% load static %}
+<div class="hd1-photo p-4 mb-4 text-body-emphasis">
+    <div class="hd1">
+      <h1>Выбери направление</h1>
+      <br>
+      <ul class="nav nav-underline">
+          {%for type in types%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'type' type.id%}">{{type.name}}</a>
+          </li>
+          {%endfor%}
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'directions'%}">Показать все</a>
+          </li>
+
+      </ul>
+    </div>
+</div>

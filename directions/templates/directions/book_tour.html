@@ -1,0 +1,54 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content book_form">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Забронировать</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <form action="{%url 'book-tour'%}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+          <div class="mb-3">
+              <div class="input__row">
+            <div class="input__group">
+                {{form_book.name}}
+                <label for="name">Имя</label>
+            </div>
+        </div>
+        <div class="input__row">
+            <div class="input__group">
+                {{form_book.email}}
+                <label for="name">Почта</label>
+            </div>
+        </div>
+        <div class="input__row">
+            <div class="input__group">
+                {{form_book.tel}}
+                <label for="name">Телефон</label>
+            </div>
+        </div>
+        <div class="input__row">
+            <div class="input__group">
+                {{form_book.nik_tg}}
+                <label for="name">Ник в Telegram</label>
+            </div>
+        </div>
+        <div class="input__row">
+            <div class="input__group">
+                {{form_book.people}}
+                <label for="name">Кол-во чел.</label>
+            </div>
+        </div>
+        <div class="input__row">
+            <div class="input__group">
+                {{form_book.date_pr}}
+                <label for="name">Выберите дату</label>
+            </div>
+        </div>
+        <button class="book_btn">Готово</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,102 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%block content%}
+<!--<div class="wrapper">-->
+<!--<main class="innner" data-barba="container" data-barba-namespace="events">-->
+  <div class="hd-photo p-4 mb-4 text-body-emphasis">
+    <div class="hd">
+      <h1>Путешествуй по России</h1>
+      <br>
+      <p>
+        Тут собраны самые интересные события в регионах, чтобы вы успели их посетить</p>
+    </div>
+  </div>
+
+<main class="container" >
+  <div class="row mb-2">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">Самые свежии новости</h3>
+    {% for new in news %}
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary-emphasis">{{new.tags}}</strong>
+          <h3 class="mb-0">{{new.title}}</h3>
+          <div class="mb-1 text-body-secondary">{{new.created}}</div>
+          <p class="card-text mb-auto">{{new.description|slice:"120"}}...</p>
+          <a href="{{new.new_link}}" target="_blank" class="icon-link gap-1 icon-link-hover stretched-link">
+            продолжить чтение
+            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250" src="{{ new.featured_image.url }}" alt="">
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        О местных традициях и фестивалях
+      </h3>
+      <ul class="months border-bottom">
+        {%for month in months%}
+        <li data-f="{{month.dt_f}}" class="links-{{month.css}}">{{month.name}}</li>
+        {%endfor%}
+        <li><a class="link-body-emphasis text-decoration-none" href="{%url 'events'%}">ЗА ВЕСЬ ГОД</a></li>
+      </ul>
+
+      {% for fest in festivals %}
+
+      <article class="blog-post {{fest.css}}">
+        <h2 class="display-5 mb-4"><a href="{{fest.link}}" target="_blank">{{fest.title}}</a></h2>
+        <p class="blog-post-meta">{{fest.date_of_the}},
+          <a href="{%url 'city' fest.owner.id%}">{{fest.owner}}</a>
+        </p>
+        <p>{{fest.info|safe}}</p>
+       </article>
+
+      {%endfor%}
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="position-sticky" style="top: 2rem;">
+        <div class="p-4 mb-3 bg-body-tertiary rounded">
+          {%if request.user.is_authenticated%}
+          {%else%}
+          <a class="link-body-emphasis text-decoration-none" href="#">
+          <h4 class="fst-italic">Кстати</h4>
+            <p class="mb-0">
+            Если ты зарегистируешься на нашем сайте, то сможешь
+              вести свой дневник путешествий и отметить на карте посещенные места
+          </p></a>
+          {%endif%}
+        </div>
+
+        <div>
+          <h4 class="fst-italic">Лайфхаки</h4>
+          {% for lhs in lifehacks %}
+          <ul class="list-unstyled">
+
+            <li>
+                <img class="bd-placeholder-img" width="170" height="100" src="{{ lhs.featured_image.url }}" alt="lhs">
+                <div class="col-lg-8">
+                  <h6 class="mb-0">{{lhs.title}}</h6>
+                </div>
+            </li>
+
+          </ul>
+        {%endfor%}
+        </div>
+
+    </div>
+    </div>
+  </div>
+
+</main>
+<!--</main>-->
+<!--</div>-->
+{%endblock%}

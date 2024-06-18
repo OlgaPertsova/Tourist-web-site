@@ -1,0 +1,26 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content book_form">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить путешествие</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <form action="{%url 'create_place'%}" method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+
+        {%for field in form_place%}
+          <div class="mb-3">
+            <div class="input__row">
+                <div class="input__group">
+                    {{field}}
+                    <label class="label_text">{{field.label}}: </label>
+                </div>
+            </div>
+          </div>
+        {%endfor%}
+        <button class="book_btn">Готово</button>
+
+    </form>
+</div>
+  </div>
+</div>

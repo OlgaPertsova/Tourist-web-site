@@ -1,0 +1,185 @@
+.cities{
+  display: block;
+  padding-top: 30px;
+}
+.title-cities{
+  display: flex !important;
+  padding-left: 85px;
+  padding-bottom: 50px;
+  color: #000;
+  margin: 0px;
+  flex-direction: column;
+}
+.title-cities h1{
+  margin-right: 50px;
+  align-items: center;
+}
+.title-cities #list-cities{
+  font-size: 1.5rem;
+  width: 90%;
+  margin-top: 10px;
+}
+.category-list li.hide{
+  display: none;
+}
+.category-list {
+  list-style: none;
+  height: 1500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
+.category-list li {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  padding: 10px 0;
+  font-size: 24px;
+  
+}
+.category-list a{
+  text-decoration: none;
+}
+
+.city{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 2rem;
+
+  .image-city{
+    flex: 1 1 42rem;
+    float: left;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+
+    img{
+      width: 90%;
+      box-shadow: 3rem 3rem 0 rgb(0,0,0,.1);
+    }
+  }
+  .city-content{
+    flex: 1 1 42rem;
+
+    h3{
+      font-size: 3rem;
+      color: rgba(6, 89, 49, 0.732);
+    }
+
+    p{
+      font-size: 1.2rem;
+      color: black;
+      padding: 1rem 0;
+      
+    }
+  }
+}
+
+/* -----------------для экскурсий------------ */
+
+
+
+.heading{
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 4rem;
+  color: #000;
+}
+.swiper-button-next, .swiper-button-prev {
+  position: sticky !important; 
+  display: block !important;
+}
+.swiper-button-next{
+  bottom: 200px !important;
+  left: 100% !important;
+}
+.swiper-button-prev{
+  bottom: 200px !important;
+}
+
+.excurs-container{
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  
+
+  .grid{
+    object-fit: cover;
+    margin: 0 auto;
+    padding-left: 5%;
+    justify-content: left;
+    gap: 0.5rem;
+
+    .excurs-box{
+      flex: 0 0 375px;
+      min-width: 0;
+      text-align: center;
+      padding: 2rem;
+      background-color: #8ee8da;
+      backdrop-filter: blur(.4rem);
+      border-radius: .5rem;
+      position: relative;
+
+      .price-duration{
+        position: absolute;
+        top: 19.2rem;
+        right: 2rem;
+        border-radius: .5rem;
+        background: #0000008c;
+        color: #78d7c9;
+        font-size: 1.2rem;
+        padding: .5rem 1.5rem;
+      }
+
+      .image{
+        height: 20rem;
+        width: 100%;
+        object-fit: cover;
+        border-radius: .4rem;
+        margin-bottom: 1.5rem;
+      }
+      .title{
+        font-size: 1.4rem;
+        color: rgb(19, 154, 33);
+      }
+      p{
+        color: rgb(3, 3, 134);
+        font-size: 1.2rem;
+      }
+
+      .excurs-btn{
+        display: inline-block;
+        border-radius: .5rem;
+        padding: 1rem 1rem;
+        background-color: none;
+        color: #0d8502;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        align-items: center;
+        width: 50%;
+        font-size: 1.4rem;
+        transition: .2s linear;
+      }
+      .excurs-btn:hover{
+        background-color: rgb(7, 43, 133);
+        color: #e5d2d2;
+      }
+    }
+
+    
+  }
+}
+
+
+
+ 
+@media (max-width:500px){
+  
+  section{
+    padding: 3rem 2rem;
+  }
+
+}

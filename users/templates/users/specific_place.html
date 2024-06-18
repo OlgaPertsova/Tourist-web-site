@@ -1,0 +1,77 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%load humanize%}
+{%block content%}
+<main data-barba="container" data-barba-namespace="home">
+
+  <div class="hd-photo p-4 mb-4 text-body-emphasis">
+    <div class="hd">
+      <h1>Россия твоими глазами</h1>
+    </div>
+  </div>
+<!--о городе-->
+<section class="city" id="city">
+    <div class="image-city">
+        <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#"><img src="{{ place.travel_image.url }}" alt=""></a>
+    </div>
+
+    <div class="city-content">
+        <a href="{%url 'profile'%}">
+            <h3>{{place.place}}</h3>
+        </a>
+    </div>
+
+    <p>Приехали <i>{{place.arrival_date}}</i> и остановились на ночлег в месте с названием <i>"{{place.housing}}"</i>, где за <i>{{place.diff_date|cut:"days, 0:00:00"}}</i> суток заплатили <i>{{place.money_spend_on_housing|intcomma}}</i> рублей.
+        Попробовали местную кухню в следующих заведениях: <i>{{place.cafes}}</i>.
+        За все путешествие на еду потратили примерно <i>{{place.money_spend_on_eats|intcomma}}</i> рублей.
+        Развлекались и интересно проводили время в таких местах как: <i>{{place.entertainments}}</i>, потратив на все это около <i>{{place.money_spend_on_entertainments|intcomma}}</i> рублей.
+        В течение самого путешествия на транспорт было потрачено около <i>{{place.transportation_costs|intcomma}}</i> рублей, а на билеты туда и обратно <i>{{place.tickets_to_and_from|intcomma}}</i> рублей.
+        Домой уехали <i>{{place.departure_date}}</i>.
+    </p>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+
+        <div class="modal-content form-photo">
+            <form action="{%url 'place' place.id%}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1>Добавьте ещё фото из этого путешествия</h1>
+
+                {{ form_photo.add_more_photo }}
+                <button type="submit" class="btn btn-outline-success">Добавить</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    <h1>/ <b>Итого было потрачено: {{place.sum|intcomma}} рублей</b></h1>
+</section>
+
+<section class="tour-carosel">
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+    {%for img in place.morephoto_set.all%}
+    <div class="carousel-item active data-bs-interval='500'">
+      <img src="{{img.add_more_photo.url}}" class="d-block w-100" alt="...">
+    </div>
+    {%endfor%}
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+    <br>
+    <br>
+    <br>
+</main>
+
+
+{%endblock%}
+

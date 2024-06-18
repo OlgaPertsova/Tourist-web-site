@@ -1,0 +1,236 @@
+.cities{
+  display: block;
+  padding-top: 10rem;
+  background-color:#184a3a;
+}
+.title-cities{
+  display: flex !important;
+  padding: 0 90px 0 90px;
+  /* padding-bottom: 50px; */
+  color: #ffffff;
+  margin-top: 50px;
+  flex-direction: column;
+}
+.title-cities h1{
+  margin-right: 50px;
+  align-items: center;
+}
+.title-cities a{
+  margin-right: 50px;
+  align-items: center;
+  font-size: 3rem !important;
+  color: white;
+}
+.title-cities a:hover{
+  color: aqua;
+}
+.title-cities #list-cities{
+  font-size: 1.5rem;
+  width: 90%;
+  margin-top: 10px;
+}
+.category-list li.hide{
+  display: none;
+}
+.category-list {
+  list-style: none;
+  height: 1500px;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  
+}
+.category-list li {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  padding: 10px 0;
+  font-size: 24px;
+  
+}
+.category-list a{
+  text-decoration: none;
+  color: #ffffff;
+}
+.category-list a:hover{
+  color: aqua;
+}
+.city{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 10rem;
+  padding-left: 8rem;
+
+  p{
+    font-size: 1.5rem;
+    color: black;
+    padding: 1rem 10rem 0rem 1rem;
+    font-family: monospace;
+  }
+  i{
+    color: red;
+  }
+  h1{
+    font-size: 5rem;
+    margin-left: 50%;
+  }
+  b{
+    font-size: 2rem;
+    color: #0d8502;
+  }
+
+  .image-city{
+    flex: 1 1 42rem;
+    float: none;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+
+    img{
+      width: 96%;
+      border-radius: 2rem;
+      box-shadow: 0 .5rem 3rem rgba(0, 0, 0, 0.9);
+    }
+    
+  }
+  .city-content{
+    flex: 1 1 42rem;
+
+    h3{
+      font-size: 6rem;
+      color: rgba(10, 100, 60, 0.9);
+      font-family: monospace;
+    }
+
+    a{
+      text-decoration: none;
+    }
+    h3:hover{
+      color: aqua;
+    }
+
+    
+  }
+}
+
+/* -----------------для экскурсий------------ */
+
+
+
+.heading{
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-family: auto;
+  font-size: 5rem;
+  color: #000;
+}
+.swiper-button-next, .swiper-button-prev {
+  position: sticky !important; 
+  display: block !important;
+}
+.swiper-button-next{
+  bottom: 200px !important;
+  left: 100% !important;
+}
+.swiper-button-prev{
+  bottom: 200px !important;
+}
+
+.excurs-container{
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  min-width: auto;
+  overflow-x: clip;
+  
+
+  .grid{
+    object-fit: cover;
+    margin: 0 auto;
+    padding-left: 5%;
+    justify-content: left;
+    gap: 0.5rem;
+
+    .excurs-box:hover{
+      background-color: #8ee8dbe0;
+      box-shadow: 0 .5rem 5rem rgba(0, 0, 0, 0.9);
+    }
+
+    .excurs-box{
+      flex: 0 0 375px;
+      min-width: 0;
+      text-align: center;
+      background-color: #8ee8db84;
+      box-shadow: 0 .5rem 3rem rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(.4rem);
+      border-radius: .5rem;
+      position: relative;
+
+      
+      .price-duration{
+        position: absolute;
+        top: 17.2rem;
+        right: 0;
+        border-radius: .5rem;
+        background: #0000008c;
+        color: #78d7c9;
+        font-size: 1.2rem;
+        padding: .5rem 1.5rem;
+      }
+
+      .image{
+        height: 20rem;
+        width: 100%;
+        object-fit: cover;
+        border-radius: .4rem;
+        margin-bottom: 1.5rem;
+      }
+      .title{
+        font-size: 1.4rem;
+        color: rgb(19, 154, 33);
+        font-family: cursive !important;
+        margin: 10px;
+      }
+      p{
+        color: rgb(3, 3, 134);
+        font-size: 1.2rem;
+        padding: 1rem 2rem 0rem 2rem;
+        font-family: monospace;
+      }
+
+      .excurs-btn{
+        display: inline-block;
+        border-radius: .5rem;
+        padding: 1rem 1rem;
+        background-color: none;
+        color: #0d8502;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        align-items: center;
+        width: 50%;
+        font-size: 1.4rem;
+        transition: .2s linear;
+      }
+      .excurs-btn:hover{
+        background-color: rgb(7, 43, 133);
+        color: #e5d2d2;
+      }
+    }
+
+    
+  }
+}
+
+
+
+ 
+@media (max-width:500px){
+  
+  section{
+    padding: 3rem 2rem;
+  }
+
+}

@@ -1,0 +1,17 @@
+{% load static %}
+{%for lhs in lifehacks%}
+<div class="lifehacks" id="lifehacks">
+
+  <span class="close-popup" onclick="document.getElementById('lifehacks').style.display='none'">
+    <img width="20" height="20" src="{%static 'images/close.png'%}" alt="close">
+  </span>
+  <form action="#">
+    <h4 class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><b>{{lhs.title}}</b></font></font></h4>
+      <br>
+    <div class="conte">
+       <p class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><i>{{lhs.description}}</i></font></font></p>
+    </div>
+  </form>
+
+</div>
+{%endfor%}

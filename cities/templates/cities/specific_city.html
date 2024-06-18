@@ -1,0 +1,46 @@
+{%extends 'events/base.html'%}
+{% load static %}
+{%load humanize%}
+{%block content%}
+<main data-barba="container" data-barba-namespace="home">
+
+<!--о городе-->
+<section class="city" id="city">
+    <div class="image-city">
+        <img src="{{ city.city_image.url }}" alt="">
+    </div>
+
+    <div class="city-content">
+        <a href="{{city.link_site_city}}" target="_blank">
+            <h3>{{city.title}}</h3>
+        </a>
+    </div>
+    <p>{{city.info|safe}}</p>
+</section>
+
+<!--экскурсии-->
+<h1 class="heading">Э К С К У Р С И И</h1>
+
+<div class="excurs-container wrapper" id="excursions">
+    <div class="swiper-container mySwiper">
+        <section class="grid swiper-wrapper">
+
+            {%for excursion in excursions%}
+            <div class="excurs-box swiper-slide">
+                <img class="image" src="{{excursion.excursions_image.url}}" alt="">
+                <div class="price-duration">{{excursion.price|intcomma}} руб. / {{excursion.duration}}</div>
+                <h3 class="title">{{excursion.title}}</h3>
+                <p class="descrip">{{excursion.description}}</p>
+                <a href="{{excursion.link}}" target="_blank" class="excurs-btn"><b>Посетить</b></a>
+            </div>
+            {%endfor%}
+        </section>
+
+
+
+    </div>
+    <div class="swiper-button-next excurs-btn1"></div>
+    <div class="swiper-button-prev excurs-btn2"></div>
+</div>
+</main>
+{%endblock%}
