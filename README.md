@@ -50,7 +50,7 @@
 Run the following commands to bootstrap your environment:
 
     sudo apt-get install -y git python-venv python-pip
-    git clone 
+    git clone https://github.com/OlgaPertsova/Tourist-web-site.git
     cd tourist-web-site
 
     python -m venv venv
@@ -65,7 +65,7 @@ Run the app locally:
 
 Run the app docker:
 
-    git clone 
+    git clone https://github.com/OlgaPertsova/Tourist-web-site.git
     cd tourist-web-site
     docker build . --tag docker-tourist-web-site
     docker images
